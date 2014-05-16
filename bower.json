@@ -1,0 +1,20 @@
+{
+  "name": "geekwise",
+  "version": "0.0.0",
+  "homepage": "https://github.com/crookedtail/geekwise",
+  "authors": [
+    "crookedtail <info@crookedtail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.10"
+  }
+}

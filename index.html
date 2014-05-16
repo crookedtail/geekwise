@@ -1,62 +1,63 @@
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="">
+<!doctype html>
+<html lang="en" ng-app="MyStore">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="">
 
-    <title>MyStore</title>
+		<title>MyStore</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-    <!-- Custom styles for this template -->
-    <link href="assets/css/layout.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="assets/css/layout.css" rel="stylesheet">
+		<link href="assets/css/product-list.css" rel="stylesheet" 
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <body>
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	</head>
+	<body>
 
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
+		<!-- Fixed navbar -->
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
 
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">MyStore</a>
-            </div>
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">MyStore</a>
+				</div>
 
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#products">Products</a>
-                </li>
-                <li>
-                    <a href="#about">About</a>
-                </li>
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+				<ul class="nav navbar-nav">
+					<li ui-sref-active="active">
+						<a ui-sref="home">Home</a>
+					</li>
+					<li ui-sref-active="active">
+						<a ui-sref="products">Products</a>
+					</li>
+					<li ui-sref-active="active">
+						<a ui-sref="about">About</a>
+					</li>
+					<li ui-sref-active="active">
+						<a ui-sref="contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-    <div class="container">
-        <!-- Main component for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <h1>MyStore Application</h1>
-            <p>This is a basic html page that we will be updating to display the e-commerce website we will be creating throughout this course.</p>
-            <p>
-                <a class="btn btn-lg btn-primary" href="#products" role="button">View Products</a>
-            </p>
-        </div>
+		<div class="container" ui-view>		 
 
-    </div> <!-- /container -->
+		</div> <!-- /container -->
 
-    </body>
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script src="app.js"></script>
+		<script src="routes.js"></script>
+		<script src="controllers/product-list-controller.js"></script>
+	</body>
 </html>
