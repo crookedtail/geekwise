@@ -3,27 +3,20 @@
 
 	var app = angular.module('MyStore');
 
-	app.controller('ProductList', function($scope, $http) {
+	app.controller('ProductList', function($scope, ProductService) {
 		
 		var errorCallback = function(reason) {
 			$scope.errorMessage = reason.statusText;  
 		};
 
-		$http.get('assets/json/products.json')
-		/*.success(function(response) {
-			
-		})
-		.error(function(reason) {
-			
-		});*/
-		//.then returns a promise and replaces the above code
+		ProductService.getProducts()
 		.then(
 			function(response) {
 				$scope.products = response.data;
 			}, errorCallback
 		);
 		
-		$http.get('assets/json/product-filters.json')
+		ProductService.getProductFilters()
 		.then(
 			function(response) {
 				$scope.filters = response.data;
