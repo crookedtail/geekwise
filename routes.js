@@ -17,11 +17,11 @@
 				controller: 'ProductList',
 				templateUrl: 'views/product-list.html'
 			})			
-			/*.state('products', {
-				url: '/products/details',
-				controller: 'ProductDetails',
-				templateUrl: 'views/product-details.html'
-			})*/
+			.state('product', {
+				url: '/product/:id',
+				controller: 'ProductDetail',
+				templateUrl: 'views/product-detail.html'
+			})
 			.state('about', {
 				url: '/about',
 				templateUrl: 'views/about.html'
