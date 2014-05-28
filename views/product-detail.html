@@ -1,0 +1,31 @@
+<div class="row">
+
+	<div class="col-sm-3">
+		<!-- Add the product picture using the built-in directive ng-src -->
+		<img ng-src="{{product.picture}}" alt="{{product.title}}"/>
+	</div>
+
+	<div class="col-sm-9">
+		<!-- Use the built-in ng-hide directive to hide the alert if the product inventory is 0 -->
+
+		<div class="alert alert-danger" ng-show="product.inventory == 0"><strong>This item is currently unavailable</strong></div>
+		<!-- Use the built-in ng-bind directive to add the product title to the h2 title tag -->
+
+		<h2 ng-bind="product.title"></h2>
+		<!-- Use the ng-class directive to add the .old class if product isSpecial is truthy, bind the price to the tag -->
+		<p ng-class="{old : product.isSpecial}" ng-bind="product.price"></p>
+
+		<!-- Use the built-in ng-show directive to show the product specialPrice if product isSpecial is truthy, bind the specialPrice to the tag -->
+		<p ng-bind="product.specialPrice" ng-show="product.isSpecial"></p>
+
+		<!-- bind the product description to the tag -->
+		<p ng-bind="product.description"></p>
+		<div>
+			<button type="button" class="btn btn-primary">To Cart</button>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<a ui-sref="products">Return to Products</a>
+</div>
