@@ -6,3 +6,24 @@
 		<a class="btn btn-lg btn-primary" href="#products" role="button">View Products</a>
 	</p>
 </div>
+<div id="wrap">
+	<div class="featured">
+		<div class="full" >
+			<div class="banner">
+				<h1>Featured</h1>
+			</div>
+			<div class="product_desc">
+				<h2 ng-bind="featuredProducts[0].title"></h2>
+				<p class="description" ng-bind="featuredProducts[0].description"></p>
+				<div class="call_to_action">
+					<a class="button" ui-sref="product({id: featuredProducts[0].guid})">Read More</a>
+				</div>
+			</div>
+		</div>
+		<div class="small">
+			<div class="three" ng-repeat="item in featuredProducts | limitTo : 4" ng-if="$index > 0">
+				<ms-featured-product product="item"></ms-featured-product>
+			</div>
+		</div>
+	</div>
+</div>

@@ -10,6 +10,7 @@
 		$stateProvider
 			.state('home', {
 				url: '/',
+				controller: 'HomeController',
 				templateUrl: 'views/home.html'
 			})
 			.state('products', {
