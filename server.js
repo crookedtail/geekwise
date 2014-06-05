@@ -13,7 +13,7 @@ var bodyParser = require('body-parser');
 
 /* ===================== configuration ==================== */
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 9001;
 
 //Add the Mongoose ORM connector to the 'server.js' file: 
 /*
@@ -55,15 +55,6 @@ conn.once('open', function() {
 	// Wait for the database connection to establish, then start the app.
 });
 
-app.use(favicon());
-app.use(logger('dev'));                    // log every request to the console
-app.use(bodyParser.json());                // have the ability to simulate DELETE and PUT
-app.use(bodyParser.urlencoded());          // have the ability to simulate DELETE and PUT
-app.use(cookieParser());                   // have the ability to parse cookies
-app.use(express.static(path.join(__dirname, 'public')));// set the static files location
-
-
-
 //LOOPS THROUGH ALL THE MODELS IN THE MODELS DIR TO REQUIRE THE FILES
 //Include the model in the server.js using the following: 
 /* ============== MODELS ========================== */
@@ -73,13 +64,18 @@ fs.readdirSync(__dirname + '/models').forEach(function(filename) {
 	}
 });
 
+// register modules ===============================================
+app.use(favicon());
+app.use(logger('dev'));                    // log every request to the console
+app.use(bodyParser.json());                // have the ability to simulate DELETE and PUT
+app.use(bodyParser.urlencoded());          // have the ability to simulate DELETE and PUT
+app.use(cookieParser());                   // have the ability to parse cookies
+app.use(express.static(path.join(__dirname, 'public')));// set the static files location
 
 // routes ==================================================
 require('./routes.js')(app);   // configure our routes, passing in app reference
 
-
-
-// start app ===============================================
+// start app THIS GOES LAST=================================
 app.listen(port);                   // startup our app at http://localhost:3000
 console.log('MEAN happens on port ' + port); // shoutout to the user
 exports = module.exports = app;             // expose app

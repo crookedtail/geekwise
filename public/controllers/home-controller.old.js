@@ -11,7 +11,7 @@
 
 		//Loop through the results of the getProducts() method using angular.forEach():
 		// Get the products from the product service
-		ProductService.getFeaturedProducts()
+		ProductService.getProducts()
 		.then(
 			function(response) {
 		 

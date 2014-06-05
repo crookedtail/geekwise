@@ -16,24 +16,39 @@ module.exports = function(app) {
 			if (err)
 				res.send(err);
 
-			res.send(product); // return all nerds in JSON format
+			res.send(product); // return the product object in JSON format
 		});
 	});
 
+	
 	// products api route
 	app.get('/api/products', function(req, res) {
 		mongoose.model('Product').find(function(err, products) {
 			if (err) 
 				res.send(err);
-			res.send(products);
+				
+			res.send(products); // return all the products in JSON format
 		});
 	});
 
+	
+	// featured products api route
+	app.get('/api/featured', function(req, res) {
+		mongoose.model('Product').find(function(err, featured) {
+			if (err) 
+				res.send(err);
+				
+			res.send(featured);
+		});
+	});
+	
+	
 	// route to handle creating (app.post)
 	// route to handle delete (app.delete)
 
 	/* ========================= frontend routes ======================= */
-	// route to handle all angular requests
+	// route to handle all angular requests not already specified and point them 
+	// to the public site
 	app.get('*', function(req, res) {
 		res.sendfile('./public/index.html'); // load our public/index.html file
 	});

@@ -15,7 +15,13 @@
 				getProducts: function() {
 					//Return the promise
 					//return $http.get('assets/json/products.json');
+					//Point to the api, which in routes is pointed to the mongoose model
 					return $http.get('/api/products');
+				},
+				
+				getFeaturedProducts: function() {
+					//Return the promise
+					return $http.get('/api/featured');
 				},
 				
 				getProductFilters: function () {
