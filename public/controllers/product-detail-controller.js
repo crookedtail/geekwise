@@ -10,33 +10,35 @@
 		//console.log(product_guid);
 
 		//Add a featuredProducts model to the $scope and initialize it as an array literal
-		$scope.featuredProducts = new Array();
+		$scope.featuredProducts = [];
 
-		// Initialize an empty product variable on the scope
-		$scope.product;
+		// Get a product from the product service
+		ProductService.getProduct(product_guid)
+		.then
+		(function(response) {
+			// Initialize an empty product variable on the scope
+			$scope.product = response.data;
+		});
+		//console.log(product);
 
 		// Get the products from the product service
-		ProductService.getProducts().then(function(response) {
+		ProductService.getProducts()
+		.then
+		(function(response) {
 
-			// Add the resulting array of products to a local products variable
 			var products = response.data;
-			//console.log(products);
 
 			// Loop through the products array using Angular's built-in forEach function
 			angular.forEach(products, function(product) {
 
 				// Check if the current product's guid property is equal to id from the URL
-				if(product.guid === product_guid) {
+				if(product.guid !== product_guid && product.isFeatured) {
 
-					// We've found a match, add the matching product to the $scope
-					$scope.product = product;
-					
-				} else if (product.isFeatured) {
-					//Add the featured product to the featuredProducts array
+					//add the featured product to the featured products array
 					$scope.featuredProducts.push(product);
 				}
 
-			});
+			});  
 
 		});
 
