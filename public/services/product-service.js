@@ -21,7 +21,10 @@
 				
 				getFeaturedProducts: function() {
 					//Return the promise
-					return $http.get('/api/featured');
+					//day 7
+					//return $http.get('/api/featured');			
+					//Day 8		
+					return $http.get('/api/products?featured=true');
 				},
 				
 				getProductFilters: function () {

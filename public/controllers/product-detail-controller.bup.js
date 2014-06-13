@@ -9,6 +9,7 @@
 		var product_guid = $stateParams.id;
 		//console.log(product_guid);
 
+		//NEED TO REWRITE USING THE FEATUREDPRODS MODEL
 		//Add a featuredProducts model to the $scope and initialize it as an array literal
 		$scope.featuredProducts = new Array();
 
@@ -16,7 +17,9 @@
 		$scope.product;
 
 		// Get the products from the product service
-		ProductService.getProducts().then(function(response) {
+		ProductService.getProducts()
+		.then
+		(function(response) {
 
 			// Add the resulting array of products to a local products variable
 			var products = response.data;

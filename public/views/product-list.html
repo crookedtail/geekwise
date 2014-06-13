@@ -2,6 +2,10 @@
 <div class="jumbotron">
 	<h1>MyStore Products</h1>
 </div>
+
+<!--Day 8-->
+<ms-mini-cart></ms-mini-cart>
+
 <div>
 	<div class="filters">
 		<!-- Loop over filters -->
@@ -47,8 +51,9 @@
 						<!-- Product description -->
 					</div>
 					<div>
-						 <ms-product-details-button product-id="{{product.guid}}"></ms-product-details-button>
-						<a href="#" class="tocart">To Cart</a>
+						<ms-product-details-button product-id="{{product.guid}}"></ms-product-details-button>						 
+						<ms-product-add-cart-button product="product"></ms-product-add-cart-button>
+<!--						<a href="#" class="tocart">To Cart</a>-->
 					</div>
 				</div>
 			</div>

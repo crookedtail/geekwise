@@ -1,3 +1,6 @@
+<!--Day 8-->
+<ms-mini-cart></ms-mini-cart>
+
 <div class="row">
 
 	<div class="col-sm-3">
@@ -21,7 +24,7 @@
 		<!-- bind the product description to the tag -->
 		<p ng-bind="product.description"></p>
 		<div>
-			<button type="button" class="btn btn-primary">To Cart</button>
+			<ms-product-add-cart-button product="product"></ms-product-add-cart-button>
 		</div>
 	</div>
 </div>
@@ -32,7 +35,7 @@
 		<div class="small">
 			<h2>Featured Products</h2>
 			<div class="three" ng-repeat="item in featuredProducts | limitTo : 3">
-				<ms-featured-product product="item"></ms-featured-product>
+				<ms-featured-product product="product"></ms-featured-product>
 			</div>
 		</div>
 	</div>
