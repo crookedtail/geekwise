@@ -44,7 +44,14 @@
 					<!-- Product title -->
 					<h2 ng-bind="product.title"></h2>
 					<!-- Conditional old class -->
-					<p ng-bind="product.price"></p>
+					<p>Regular Price:
+						<span ng-class="{old : product.isSpecial}" ng-bind="product.price"></span> 
+						<span ng-show="product.isSpecial">Special Price:
+						<span ng-bind="product.specialPrice" ng-show="product.isSpecial"></span>
+					</span>
+					</p>
+
+					
 					<!-- Conditionally show special price -->
 					<p></p>
 					<div class="description" ng-bind="product.description">
@@ -53,7 +60,7 @@
 					<div>
 						<ms-product-details-button product-id="{{product.guid}}"></ms-product-details-button>						 
 						<ms-product-add-cart-button product="product"></ms-product-add-cart-button>
-<!--						<a href="#" class="tocart">To Cart</a>-->
+						<!--						<a href="#" class="tocart">To Cart</a>-->
 					</div>
 				</div>
 			</div>

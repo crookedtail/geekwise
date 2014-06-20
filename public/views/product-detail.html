@@ -16,10 +16,14 @@
 
 		<h2 ng-bind="product.title"></h2>
 		<!-- Use the ng-class directive to add the .old class if product isSpecial is truthy, bind the price to the tag -->
-		<p ng-class="{old : product.isSpecial}" ng-bind="product.price"></p>
+		<p>Regular Price: 
+			<span ng-class="{old : product.isSpecial}" ng-bind="product.price"></span>
+		</p>
 
 		<!-- Use the built-in ng-show directive to show the product specialPrice if product isSpecial is truthy, bind the specialPrice to the tag -->
-		<p ng-bind="product.specialPrice" ng-show="product.isSpecial"></p>
+		<p ng-show="product.isSpecial">Special Price:
+			<span ng-bind="product.specialPrice" ng-show="product.isSpecial"></span>
+		</p>
 
 		<!-- bind the product description to the tag -->
 		<p ng-bind="product.description"></p>
@@ -35,7 +39,7 @@
 		<div class="small">
 			<h2>Featured Products</h2>
 			<div class="three" ng-repeat="item in featuredProducts | limitTo : 3">
-				<ms-featured-product product="product"></ms-featured-product>
+				<ms-featured-product product="item"></ms-featured-product>
 			</div>
 		</div>
 	</div>
